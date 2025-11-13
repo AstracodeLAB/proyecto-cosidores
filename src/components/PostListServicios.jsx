@@ -29,17 +29,17 @@ const PostListServicios = () => {
     <div>
       <h2>Servicios</h2>
       {posts.map((post) => (
-        <div key={post.id} className="mb-6 border rounded p-4 shadow-sm">
+        <div key={post.id} >
           {post.featuredImage && (
             <img
               src={post.featuredImage}
               alt={post.title}
-              className="w-full h-48 object-cover mb-4 rounded"
+              
             />
           )}
           <div>
-            <h3 dangerouslySetInnerHTML={{ __html: post.title }} className="text-xl font-semibold mb-2" />
-            <p className="text-gray-500 text-sm mb-2">{new Date(post.date).toLocaleDateString()}</p>
+            <h3 dangerouslySetInnerHTML={{ __html: post.title }}  />
+            <p>{new Date(post.date).toLocaleDateString()}</p>
             <div
   dangerouslySetInnerHTML={{
     __html:
@@ -50,7 +50,7 @@ const PostListServicios = () => {
 />
             <Link
               to={`/post/${post.slug}`}
-              className="text-blue-600 text-sm mt-2 inline-block"
+              
             >
               Leer más →
             </Link>

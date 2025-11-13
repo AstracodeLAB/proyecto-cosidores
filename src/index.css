@@ -1,5 +1,10 @@
+/* index.css */
+
+/* Import Google Fonts Figtree */
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Figtree', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -13,7 +18,27 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  padding-top: 5rem;
+  font-family: 'Figtree', sans-serif; /* Aplica Figtree globalmente */
+  background-color: #292929;
+}
+
 img {
   max-width: 50%;
   height: auto;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0; /* opcional: quita la sangría por defecto */
+  margin: 0;       /* opcional: quita margen por defecto */
 }

@@ -23,13 +23,11 @@ const PagePrueba = () => {
   if (!page) return <p>Cargando página...</p>;
 
   return (
-    <div className="max-w-2xl mx-auto bg-white shadow-md rounded-2xl overflow-hidden p-6 my-8">
+    <div className="page-prueba" >
       <h1
-        className="text-3xl font-bold mb-4"
         dangerouslySetInnerHTML={{ __html: page.title }}
       />
       <div
-        className="prose prose-lg text-gray-700"
         dangerouslySetInnerHTML={{ __html: page.content }}
       />
     </div>

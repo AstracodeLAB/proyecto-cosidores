@@ -18,13 +18,13 @@ const PostDetallePrueba = () => {
   if (!post) return <p>Cargando post...</p>;
 
   return (
-    <div className="max-w-2xl mx-auto bg-white shadow-md rounded-2xl overflow-hidden p-6 my-8">
-      <button className="text-blue-600 mb-4" onClick={() => navigate(-1)}>
+    <div >
+      <button  onClick={() => navigate(-1)}>
         ← Volver
       </button>
-      {post.featuredImage && <img src={post.featuredImage} alt={post.title} className="w-full h-64 object-cover mb-4" />}
-      <h1 className="text-3xl font-bold mb-4" dangerouslySetInnerHTML={{ __html: post.title }} />
-      <div className="prose prose-lg text-gray-700" dangerouslySetInnerHTML={{ __html: post.content }} />
+      {post.featuredImage && <img src={post.featuredImage} alt={post.title} />}
+      <h1  dangerouslySetInnerHTML={{ __html: post.title }} />
+      <div  dangerouslySetInnerHTML={{ __html: post.content }} />
     </div>
   );
 };

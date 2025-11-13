@@ -3,6 +3,7 @@ import PagePrueba from './components/PagePrueba.jsx';
 import PostListNoticias from './components/PostListNoticias.jsx';
 import PostDetallePrueba from './components/PostDetallePrueba.jsx';
 import PostListServicios from './components/PostListServicios.jsx';
+import Header from "./components/Header.jsx";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={
             <>
+             <Header />
               <PagePrueba />
               <PostListNoticias />
               <PostListServicios />

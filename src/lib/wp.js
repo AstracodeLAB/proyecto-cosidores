@@ -22,32 +22,32 @@ export const getPageInfo = async (slug) => {
   };
 };
 
-export const getLatestPosts = async (perPage = 10) => {
-  //si no quiero imagenes destacadas, quito &_embed
-  const response = await fetch(`${apiUrl}/posts?per_page=${perPage}&_embed`);
-  console.log("Status:", response.status);
+// export const getLatestPosts = async (perPage = 10) => {
+//   //si no quiero imagenes destacadas, quito &_embed
+//   const response = await fetch(`${apiUrl}/posts?per_page=${perPage}&_embed`);
+//   console.log("Status:", response.status);
 
-  const results = await response.json();
-  console.log("Resultados brutos de WP:", results);
+//   const results = await response.json();
+//   console.log("Resultados brutos de WP:", results);
 
-  if (!response.ok) throw new Error("Error al obtener los posts");
+//   if (!response.ok) throw new Error("Error al obtener los posts");
 
-  if (!Array.isArray(results) || results.length === 0) {
-    console.warn("⚠️ No hay posts publicados o el resultado no es un array");
-    return [];
-  }
+//   if (!Array.isArray(results) || results.length === 0) {
+//     console.warn("⚠️ No hay posts publicados o el resultado no es un array");
+//     return [];
+//   }
 
-  return results.map((post) => ({
-    id: post.id,
-    title: post.title.rendered,
-    content: post.content.rendered,
-    excerpt: post.excerpt,
-    slug: post.slug,
-    link: post.link,
-    featuredImage: post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null,
-    date: post.date,
-  }));
-};
+//   return results.map((post) => ({
+//     id: post.id,
+//     title: post.title.rendered,
+//     content: post.content.rendered,
+//     excerpt: post.excerpt,
+//     slug: post.slug,
+//     link: post.link,
+//     featuredImage: post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null,
+//     date: post.date,
+//   }));
+// };
 
 
 //he creado uno para que separe por categoria
