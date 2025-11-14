@@ -1,0 +1,25 @@
+@use '../core/variables' as var;
+
+@mixin mobile-lg {
+  @media (min-width: var.$break-mobile-lg) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: var.$break-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: var.$break-desktop) {
+    @content;
+  }
+}
+
+@mixin desktop-xl {
+  @media (min-width: var.$break-desktop-xl) {
+    @content;
+  }
+}

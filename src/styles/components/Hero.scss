@@ -1,0 +1,61 @@
+@use 'sass:map';
+@use '../core/variables' as var;
+@use '../core/mixins' as mix;
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 0.5rem;
+  margin-top: 2.5rem;
+  background-color: var.$white;
+  @include mix.tablet {
+    padding: 4rem 1rem;
+  }
+  @include mix.desktop {
+    padding: 5rem 1rem;
+  }
+  @include mix.desktop-xl {
+    padding: 6rem 1rem;
+  }
+}
+
+.hero__content{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.hero__logo {
+  width: 60%;
+  
+}
+
+.hero__text {
+  font-size: map.get(var.$h1-mobile, font-size);	
+  font-weight: 800;
+  line-height: map.get(var.$h1-mobile, line-height);
+  display: inline-block;
+  white-space: pre-line;
+  text-align: start;
+  color: var.$black;
+
+  @include mix.mobile-lg {
+    font-size: 38px;
+    line-height: 36px;
+  }
+
+  @include mix.tablet {
+    font-size: map.get(var.$h1-tablet, font-size);
+    line-height: map.get(var.$h1-tablet, line-height);
+  }
+
+  @include mix.desktop {
+    font-size: map.get(var.$h1-desktop, font-size);
+    line-height: map.get(var.$h1-desktop, line-height);
+  }
+}

@@ -27,15 +27,11 @@
 body {
   margin: 0;
   padding: 0;
-  padding-top: 5rem;
   font-family: 'Figtree', sans-serif; /* Aplica Figtree globalmente */
   background-color: #292929;
+  
 }
 
-img {
-  max-width: 50%;
-  height: auto;
-}
 
 ul {
   list-style: none;

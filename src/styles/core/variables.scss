@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
+
+//colors
+$black: #161616;
+$white: #EFEFEF;
+$gray-dark: #292929;
+
+//red
+$red-primary: #E10041;
+$red-secondary: #EB78D7;
+$red-tertiary: #FFB4FF;
+
+//purple
+$purple-primary: #6E00A0;
+$purple-secondary: #A573FF;
+$purple-tertiary: #CDB4FF;
+
+//blue
+$blue-primary: #0F2896;
+$blue-secondary: #6EAAFF;
+$blue-tertiary: #AADCFF;
+
+//green
+$green-primary: #00645A;
+$green-secondary: #91CD00;
+$green-tertiary: #DCF55A;
+
+// Breakpoints (mobile-first)
+$break-mobile-lg: 420px; 
+$break-tablet: 768px;
+$break-desktop: 1024px;
+$break-desktop-xl: 1440px;
+
+//font
+$font-family: 'Figtree', system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+// H1
+$h1-mobile: (
+  font-size: 20px,
+  line-height: 22px,
+);
+
+$h1-tablet: (
+  font-size: 64px,
+  line-height: 62px,
+);
+
+$h1-desktop: (
+  font-size: 86px,
+  line-height: 97px,
+);
+
+// H2
+$h2-mobile: (
+  font-size: 28px,
+  line-height: 59px,
+);
+
+$h2-tablet: (
+  font-size: 40px,
+  line-height: 59px,
+);
+
+$h2-desktop: (
+  font-size: 48px,
+  line-height: normal,
+);
+
+// H3
+$h3-mobile: (
+  font-size: 20px,
+);
+
+$h3-tablet: (
+  font-size: 24px,
+);
+
+$h3-desktop: (
+  font-size: 26px,
+);
+
+// Special paragraph
+$paragraph-mobile: (
+  font-size: 16px,
+  line-height: 28px,
+);
+
+$paragraph-tablet: (
+  font-size: 18px,
+  line-height: 30px,
+);
+
+$paragraph-desktop: (
+  font-size: 20px,
+  line-height: 32px,
+);

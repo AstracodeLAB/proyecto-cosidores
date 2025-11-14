@@ -102,5 +102,6 @@ export const getPostBySlug = async (slug) => {
    slug: post.slug,
    featuredImage: post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null,
    date: post.date,
+   
    };
   };

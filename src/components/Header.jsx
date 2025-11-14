@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import InstagramIcon from "../assets/icons/iconoInsta.svg";
+import iconoAguja from "../assets/icons/iconoAguja.svg";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -68,7 +69,7 @@ export default function Header() {
         <div className="navigation__container">
           
           <div className="navigation__container-logo">
-            <p> FET A SALT</p>
+            <p>COSIDORES DE SALT</p>
           </div>
 
           {/* Botón hamburguesa */}
@@ -138,7 +139,7 @@ export default function Header() {
                 onClick={() => toggleSubmenu(!isSubmenuOpen)}
               >
                 QUÈ FEM?
-                <svg
+                {/* <svg
                   id="services-arrow"
                   className="navigation__container-menu-itemsMap-arrow"
                   viewBox="0 0 20 20"
@@ -146,8 +147,10 @@ export default function Header() {
                   style={{ transform: isSubmenuOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.3s" }}
                 >
                   <path d="M5 7l5 5 5-5H5z"></path>
-                </svg>
+                </svg> */}
+                <img src={iconoAguja} alt="" />
               </button>
+             
 
               <div
                 id="submenu-services"

@@ -1,13 +1,13 @@
 @use 'sass:map';
-@use '../core/variables' as *;
-@use '../core/mixins' as *;
+@use '../core/variables' as var;
+@use '../core/mixins' as mix;
 
 .header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #161616;
-  border-bottom: 1px solid #eee;
+  background: var.$black;
+  //border-bottom: 1px solid #eee;
   box-shadow: 0 1px 10px 0 rgba(42, 17, 96, 0.2);
   z-index: 1000;
   padding: 0.5rem 1rem;
@@ -31,8 +31,16 @@
   display: flex;
   align-items: center;
   color: #EFEFEF;
-  font-weight: 800;
-  font-size: 1.5rem;
+  //font-weight: 700;
+  font-size: 0.8rem;
+
+  @include mix.tablet {
+    font-size: 1rem;   
+  }
+
+  @include mix.desktop {
+    font-size: 1.2rem;
+  }
 }
 
 /* ---- BOTÓN HAMBURGUESA  ---- */
@@ -82,7 +90,7 @@
 
 /* ---- LINKS PRINCIPALES ---- */
 .navigation__container-menu-itemsMap-link {
-  font-size: 1.25rem;
+  
   //font-weight: map.get($SmallText-mobile, 'font-weight');
   color: #EFEFEF;
   text-decoration: none;
@@ -93,13 +101,14 @@
   align-items: center;
   gap: 0.25rem;
   transition: all 0.3s ease-in-out;
-  @media (min-width: 48rem) {
-    //font-size: map.get($Body-tablet, 'font-size');
-    //font-weight: map.get($Body-tablet, 'font-weight');
+  font-size: 0.8rem;
+
+  @include mix.tablet {
+    font-size: 1rem;   
   }
-  @media (min-width: 64rem) {
-    //font-size: map.get($Body-desktop, 'font-size');
-    //font-weight: map.get($Body-desktop, 'font-weight');
+
+  @include mix.desktop {
+    font-size: 1.2rem;
   }
 }
 
@@ -179,6 +188,7 @@
   width: 0.875rem;
   height: 0.875rem;
   transition: transform 0.3s ease;
+  fill: var.$white;
 }
 
 /* ---- CTA móvil ---- */

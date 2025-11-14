@@ -1,0 +1,107 @@
+@use 'sass:map';
+@use '../core/variables' as var;
+@use '../core/mixins' as mix;
+
+.contact {
+  background-color: var.$white;
+  color: var.$black;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  @include mix.mobile-lg {
+    padding: 2rem;
+  }
+  @include mix.tablet {
+    padding: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+  }
+  @include mix.desktop {
+    padding: 5rem;
+
+  }
+  @include mix.desktop {
+    padding: 5rem 10rem;
+    
+  }
+  
+
+  &__intro {
+    text-align: start;
+    @include mix.tablet {
+      flex: 1;
+    }
+    
+  }
+
+  &__form {
+    
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @include mix.tablet {
+      flex: 1;
+    }
+
+    @include mix.desktop {
+      
+    }
+  }
+}
+
+.form__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.input__contact {
+  padding: 0.75rem 1rem;
+  border: 2px solid var.$gray-dark;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: 'Figtree', sans-serif;
+  color: var.$black;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+
+  &:focus {
+    border-color: var.$black;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    outline: none;
+  }
+
+  &::placeholder {
+    color: var.$gray-dark;
+    opacity: 0.7;
+  }
+}
+
+.btn__submit {
+  background-color: var.$black;
+  color: var.$white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-family: 'Figtree', sans-serif;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+
+  &:hover {
+    background-color: var.$gray-dark;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+}

@@ -1,0 +1,8 @@
+@use 'sass:map';
+@use '../core/variables' as var;
+@use '../core/mixins' as mix;
+
+.manifest {
+  height: 300px;
+  background-color: var.$black;
+}

@@ -16,7 +16,7 @@ const PostListServicios = () => {
       })
       .catch((err) => {
         console.error("Error al cargar servicios:", err);
-        setError(err.message);
+        setError(err.message);      
       })
       .finally(() => setLoading(false));
   }, []);
