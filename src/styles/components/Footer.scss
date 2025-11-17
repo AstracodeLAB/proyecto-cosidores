@@ -1,0 +1,212 @@
+@use 'sass:map';
+@use '../core/variables' as var;
+@use '../core/mixins' as mix;
+
+.footer {
+  background-color: var.$black;
+  color: var.$white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  gap: 2rem;
+
+  @include mix.tablet {  
+    padding: 3rem 4rem;
+  }
+  @include mix.desktop {  
+    padding: 3rem 6rem;
+  }
+}
+
+.footer__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1440px;
+
+  @include mix.tablet {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 4rem;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+.footer__content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  @include mix.tablet {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
+
+.footer__logo {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  max-width: 200px;
+  @include mix.tablet {
+    width: 60%;
+  }
+  @include mix.desktop {
+   // width: 30%;
+    max-width: 300px;
+  }
+
+  &-img {
+    width: 100%;
+    
+  }
+}
+
+.footer__nav {
+  
+    li {
+      font-size: map.get(var.$Sparagraph-mobile, font-size);	
+      line-height: map.get(var.$Sparagraph-mobile, line-height);
+
+    @include mix.tablet {
+      font-size: map.get(var.$Sparagraph-tablet, font-size);
+      line-height: map.get(var.$Sparagraph-tablet, line-height);
+    }
+
+    @include mix.desktop {
+      font-size: map.get(var.$Sparagraph-desktop, font-size);
+      line-height: map.get(var.$Sparagraph-desktop, line-height);
+    }
+  }
+  a {
+    color: var.$white;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer__contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  
+
+  &-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var.$white;
+    cursor: pointer;
+    font-size: map.get(var.$Sparagraph-mobile, font-size);	
+    line-height: map.get(var.$Sparagraph-mobile, line-height);
+
+  @include mix.tablet {
+    font-size: map.get(var.$Sparagraph-tablet, font-size);
+    line-height: map.get(var.$Sparagraph-tablet, line-height);
+    justify-content: right;
+  }
+
+  @include mix.desktop {
+    font-size: map.get(var.$Sparagraph-desktop, font-size);
+    line-height: map.get(var.$Sparagraph-desktop, line-height);
+  }
+
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer__legal {
+  font-size: map.get(var.$Sparagraph-mobile, font-size);	
+  line-height: map.get(var.$Sparagraph-mobile, line-height);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0 0.5rem;
+  justify-content: center;
+
+  @include mix.tablet {
+    font-size: map.get(var.$Sparagraph-tablet, font-size);
+    line-height: map.get(var.$Sparagraph-tablet, line-height);
+  }
+
+  @include mix.desktop {
+    font-size: map.get(var.$Sparagraph-desktop, font-size);
+    line-height: map.get(var.$Sparagraph-desktop, line-height);
+  }
+  &-copyright {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 1440px;
+    @include mix.tablet {
+      
+      
+    }
+    @include mix.desktop {
+      display: flex;
+      flex-direction: row;
+      gap: 0 1rem;
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+  a {
+    color: var.$white;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.footer__copyright {
+  font-size: map.get(var.$Sparagraph-mobile, font-size);	
+  line-height: map.get(var.$Sparagraph-mobile, line-height);
+  text-align: center;
+  
+
+  @include mix.tablet {
+    font-size: map.get(var.$Sparagraph-tablet, font-size);
+    line-height: map.get(var.$Sparagraph-tablet, line-height);
+  }
+
+  @include mix.desktop {
+    font-size: map.get(var.$Sparagraph-desktop, font-size);
+    line-height: map.get(var.$Sparagraph-desktop, line-height);
+  }
+  
+}
+
+.footer__creator {
+  font-size: map.get(var.$Sparagraph-mobile, font-size);	
+  line-height: map.get(var.$Sparagraph-mobile, line-height);
+  text-align: center;
+
+  @include mix.tablet {
+    font-size: map.get(var.$Sparagraph-tablet, font-size);
+    line-height: map.get(var.$Sparagraph-tablet, line-height);
+  }
+
+  @include mix.desktop {
+    font-size: map.get(var.$Sparagraph-desktop, font-size);
+    line-height: map.get(var.$Sparagraph-desktop, line-height);
+  }
+
+  a {
+    color: var.$white;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

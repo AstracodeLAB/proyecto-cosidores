@@ -8,6 +8,7 @@ import logoRed from "./assets/images/logoRed.png";
 import Hero from "./components/Hero.jsx";
 import Manifest from "./components/Manifest.jsx";
 import Contact from "./components/Contact.jsx";
+import Footer from "./components/Footer.jsx";
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
             /> 
             <Manifest />
             <Contact />
-            
+            <Footer />
             </>
           } />
           <Route path="/post/:slug" element={<PostDetallePrueba />} />

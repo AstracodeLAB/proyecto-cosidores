@@ -31,8 +31,17 @@
 }
 
 .hero__logo {
-  width: 60%;
-  
+  width: 100%;
+  max-width: 150px;
+  @include mix.tablet {
+    max-width: 500px;
+  }
+  @include mix.desktop {
+    max-width: 600px;
+  }
+  @include mix.desktop-xl {
+    max-width: 800px;
+  }
 }
 
 .hero__text {

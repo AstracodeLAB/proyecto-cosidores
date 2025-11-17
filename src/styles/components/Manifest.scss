@@ -1,8 +1,93 @@
 @use 'sass:map';
 @use '../core/variables' as var;
 @use '../core/mixins' as mix;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .manifest {
-  height: 300px;
-  background-color: var.$black;
+  background-color: var.$black-opacity;
+  font-family: "Bebas Neue", sans-serif;
+  padding: 2rem 1.5rem;
+  color: var.$white;
+  @include mix.desktop {
+    padding: 4rem 2rem;
+  }
+  
+}
+.manifest__content {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  letter-spacing: 0.2rem;
+  color: var.$white;
+  margin-bottom: 1.5rem;
+
+  @include mix.tablet {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    letter-spacing: 0.15rem;
+  }
+  @include mix.desktop {
+    font-size: 2rem;
+    line-height: 1.8;
+    letter-spacing: 0.1rem;
+  }
+  @include mix.desktop-xl {
+    font-size: 3rem;
+    line-height: 1.8;
+    letter-spacing: 0.15rem;
+  }
+  &-text {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+}
+
+.manifest__highlight {
+  font-size: 1.4rem;      /* aumenta el tamaño */
+  line-height: 1.2;
+       /* más grosor */
+  //display: inline-block;  /* opcional, por si quieres hacer spacing */
+  margin: 0 4px;    
+
+  @include mix.tablet {
+    font-size: 2rem;      /* aumenta el tamaño */
+    line-height: 1.2;
+         /* más grosor */
+    //display: inline-block;  /* opcional, por si quieres hacer spacing */
+    margin: 0 6px;    
+  }
+  @include mix.desktop {
+    font-size: 3rem;      /* aumenta el tamaño */
+    line-height: 1.2;
+         /* más grosor */
+    //display: inline-block;  /* opcional, por si quieres hacer spacing */
+    margin: 0 8px;    
+  }
+  @include mix.desktop-xl {
+    font-size: 5rem;      /* aumenta el tamaño */
+    line-height: 1.2;
+         /* más grosor */
+    //display: inline-block;  /* opcional, por si quieres hacer spacing */
+    margin: 0 10px;    
+  }
+}
+
+.manifest__citation {
+  font-family: var.$font-family;
+  line-height: 1.5rem;
+  letter-spacing: 0.1rem;
+  color: var.$white;
+  font-style: italic;
+  font-size: map.get(var.$Sparagraph-mobile, font-size);	
+  font-weight: 100;  
+  text-align: right;
+  
+
+    @include mix.tablet {
+      font-size: map.get(var.$Sparagraph-tablet, font-size);
+      line-height: map.get(var.$Sparagraph-tablet, line-height);
+    }
+
+    @include mix.desktop {
+      font-size: map.get(var.$Sparagraph-desktop, font-size);
+      line-height: map.get(var.$Sparagraph-desktop, line-height);
+}
 }
