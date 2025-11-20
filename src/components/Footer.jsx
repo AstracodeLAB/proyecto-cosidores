@@ -19,13 +19,14 @@ export default function Footer() {
             <li><a href="/">Inici</a></li>
             <li><a href="/qui-som">Qui som?</a></li>
             <li><a href="/que-fem">Què fem?</a></li>
-            <li><a href="/noticies">Notícies</a></li>
+            <li><a href="/noticies">Noticies</a></li>
+            <li><a href="/contacte">Contacte</a></li>
             </ul>
           </div>
         </div>
       
 
-        <div class="footer__contact">
+        <div className="footer__contact">
           <a href="mailto:cosidoresdesalt@gmail.com" className="footer__contact-link">
             <img src={MailIcon} alt="Icono mail de contacto" />
             cosidoresdesalt@gmail.com

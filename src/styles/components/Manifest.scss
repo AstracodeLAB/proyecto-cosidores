@@ -6,8 +6,11 @@
 .manifest {
   background-color: var.$black-opacity;
   font-family: "Bebas Neue", sans-serif;
-  padding: 2rem 1.5rem;
+  padding: 2.5rem 1.5rem;
   color: var.$white;
+  @include mix.mobile-lg {
+    padding: 4rem 2rem;
+  }
   @include mix.desktop {
     padding: 4rem 2rem;
   }

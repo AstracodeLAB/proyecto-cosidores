@@ -1,10 +1,15 @@
 import { useState, useEffect, useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import InstagramIcon from "../assets/icons/iconoInsta.svg";
 import iconoAguja from "../assets/icons/iconoAguja.svg";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
+  const location = useLocation();
+const currentPath = location.pathname;
+
+const isActive = (path) => currentPath === path;
 
   const toggleMenu = useCallback((open) => {
     setIsMenuOpen(open);
@@ -119,18 +124,20 @@ export default function Header() {
 
             {/* Mega menú */}
             <li className="navigation__container-menu-itemsMap">
-              <a href="/sobre-nosotras/" className="navigation__container-menu-itemsMap-link">
-                INICI
+              <a href="/" className="navigation__container-menu-itemsMap-link">
+               INICI {isActive("/") && <img src={iconoAguja} alt="" className="nav-icon" />}
               </a>
             </li>
             <li className="navigation__container-menu-itemsMap">
-              <a href="/sobre-nosotras/" className="navigation__container-menu-itemsMap-link">
-                QUI SOM?
+              <a href="/qui-som" className="navigation__container-menu-itemsMap-link">
+               QUI SOM? {isActive("/qui-som") && <img src={iconoAguja} alt="" className="nav-icon" />}
               </a>
             </li>
             <li className="navigation__container-menu-itemsMap">
-              
-              <button
+            <a href="/que-fem" className="navigation__container-menu-itemsMap-link">
+            QUÈ FEM? {isActive("/que-fem") && <img src={iconoAguja} alt="" className="nav-icon" />}
+              </a>
+              {/* <button
                 id="services-btn"
                 className="navigation__container-menu-itemsMap-link"
                 aria-expanded={isSubmenuOpen}
@@ -139,7 +146,7 @@ export default function Header() {
                 onClick={() => toggleSubmenu(!isSubmenuOpen)}
               >
                 QUÈ FEM?
-                {/* <svg
+                <svg
                   id="services-arrow"
                   className="navigation__container-menu-itemsMap-arrow"
                   viewBox="0 0 20 20"
@@ -147,7 +154,7 @@ export default function Header() {
                   style={{ transform: isSubmenuOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.3s" }}
                 >
                   <path d="M5 7l5 5 5-5H5z"></path>
-                </svg> */}
+                </svg> 
                 <img src={iconoAguja} alt="" />
               </button>
              
@@ -191,18 +198,18 @@ export default function Header() {
                     <li><a href="/servicios/hosting-dominio/">Hosting y dominio</a></li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </li>
 
             <li className="navigation__container-menu-itemsMap">
-              <a href="/sobre-nosotras/" className="navigation__container-menu-itemsMap-link">
-                NOTICIES
+              <a href="/noticies" className="navigation__container-menu-itemsMap-link">
+               NOTICIES {isActive("/noticies") && <img src={iconoAguja} alt="" className="nav-icon" />}
               </a>
             </li>
 
             <li className="navigation__container-menu-itemsMap">
-              <a href="/contacto/" className="navigation__container-menu-itemsMap-link">
-                CONTACTE
+              <a href="/contacte" className="navigation__container-menu-itemsMap-link">
+               CONTACTE {isActive("/contacte") && <img src={iconoAguja} alt="" className="nav-icon" />}
               </a>
             </li>
 

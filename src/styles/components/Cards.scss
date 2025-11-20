@@ -1,0 +1,61 @@
+@use 'sass:map';
+@use '../core/variables' as var;
+@use '../core/mixins' as mix;
+
+.card {
+  &--quefem {
+    width: 50%;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  &__image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+
+    &--quefem {
+      width: 60%;
+    }
+  }
+
+  &__content {
+    padding: 1rem;
+
+    &--quefem {
+      // estilos específicos de contenido
+    }
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+
+    &--quefem {
+      // estilos específicos
+    }
+  }
+
+  &__excerpt {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+
+    &--quefem {
+      // estilos específicos
+    }
+  }
+
+  &__link {
+    font-weight: 600;
+    color: #007bff;
+    text-decoration: none;
+
+    &--quefem {
+      // estilos específicos
+    }
+  }
+}
