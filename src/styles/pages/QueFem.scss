@@ -5,12 +5,63 @@
 .quefem {
   background-color: var.$white;
   color: black;
+  padding: 2.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @include mix.tablet {
+    padding: 4rem;
+  }
+  @include mix.desktop {
+    padding: 10rem;
+  }
+  &__title{
+      font-size: map.get(var.$h2-mobile, font-size);	
+      font-weight: 800;
+      line-height: map.get(var.$h2-mobile, line-height);
+      margin-bottom: 1rem;
+
+      @include mix.tablet {
+        font-size: map.get(var.$h2-tablet, font-size);
+        line-height: map.get(var.$h2-tablet, line-height);
+      }
+
+      @include mix.desktop {
+        font-size: map.get(var.$h2-desktop, font-size);
+        line-height: map.get(var.$h2-desktop, line-height);
+      }
+    }
+
+  &__text {
+      font-size: map.get(var.$paragraph-mobile, font-size);	
+      line-height: map.get(var.$paragraph-mobile, line-height);
+      @include mix.tablet {
+        font-size: map.get(var.$paragraph-tablet, font-size);
+        line-height: map.get(var.$paragraph-tablet, line-height);
+      }
+      @include mix.desktop {
+        font-size: map.get(var.$paragraph-desktop, font-size);
+        line-height: map.get(var.$paragraph-desktop, line-height);
+      }
+  }
+
   &__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
-    padding: 2rem 1rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 1.5rem 0;
+    width: 100%;
+    align-items: center;
+  }
+
+  @include mix.tablet {
+    
+  }
+  @include mix.desktop {
+    
+  }
+  @include mix.desktop-xl {
+  
   }
 }

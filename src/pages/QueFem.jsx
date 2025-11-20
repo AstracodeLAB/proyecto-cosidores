@@ -31,9 +31,9 @@ export default function Quefem() {
                 alt="Logo de la página Cosidores"
               />
         <section className="quefem">
-        <div>
-          <h2>Donem forma a projectes tèxtils</h2>
-          <p>Transformem roba, moments i idees. Les cosidores treballem amb creativitat i respecte pel medi ambient, projectant valors a cada puntada.</p>
+        <div className="quefem__intro">
+          <h2 className="quefem__title">Donem forma a projectes tèxtils</h2>
+          <p className="quefem__text">Transformem roba, moments i idees. Les cosidores treballem amb creativitat i respecte pel medi ambient, projectant valors a cada puntada.</p>
         </div>
         <div className="quefem__grid">
         {servicios.map((servicio) => (
