@@ -1,7 +1,7 @@
 // src/components/CardQueFem.jsx
 import React from "react";
 
-export default function CardQueFem({ title, excerpt, featuredImage, link, content }) {
+export default function CardQueFem({ title, excerpt, featuredImage, link}) {
   return (
     <div className="card card--quefem">
       
