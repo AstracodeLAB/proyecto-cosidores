@@ -25,7 +25,7 @@ export default function Contact() {
       <div className="contact__container">
         <div className="contact__intro">
           <h2 className="contact__intro-title"> 
-            CONTACTE / FEM FIL ?
+            CONTACTA
           </h2>
           <p className="contact__intro-info">
             Cada punt comença amb un gest i cada col·laboració amb una conversa. 

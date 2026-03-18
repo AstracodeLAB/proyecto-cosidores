@@ -7,19 +7,16 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
   const location = useLocation();
-const currentPath = location.pathname;
+  const currentPath = location.pathname;
 
-const isActive = (path) => currentPath === path;
+  const isActive = (path) => currentPath === path;
 
-  const toggleMenu = useCallback((open) => {
-    setIsMenuOpen(open);
-  }, []);
+  const linkClass = (path) =>
+    `navigation__container-menu-itemsMap-link ${isActive(path) ? "navigation__container-menu-itemsMap-link--active" : ""}`;
 
-  const toggleSubmenu = useCallback((open) => {
-    setIsSubmenuOpen(open);
-  }, []);
+  const toggleMenu = useCallback((open) => setIsMenuOpen(open), []);
+  const toggleSubmenu = useCallback((open) => setIsSubmenuOpen(open), []);
 
-  // Cerrar menú/submenú al hacer clic fuera o presionar Escape
   useEffect(() => {
     const handleClickOutside = (e) => {
       const navMenu = document.getElementById("nav-menu");
@@ -30,7 +27,6 @@ const isActive = (path) => currentPath === path;
       if (isSubmenuOpen && submenu && servicesBtn && !submenu.contains(e.target) && !servicesBtn.contains(e.target)) {
         toggleSubmenu(false);
       }
-
       if (isMenuOpen && navMenu && navToggle && !navMenu.contains(e.target) && !navToggle.contains(e.target)) {
         toggleMenu(false);
       }
@@ -45,14 +41,12 @@ const isActive = (path) => currentPath === path;
 
     document.addEventListener("click", handleClickOutside);
     document.addEventListener("keydown", handleKeyDown);
-
     return () => {
       document.removeEventListener("click", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isMenuOpen, isSubmenuOpen, toggleMenu, toggleSubmenu]);
 
-  // Cerrar menú cuando se navega
   useEffect(() => {
     const navLinks = document.querySelectorAll('#nav-menu a[href^="/"]');
     navLinks.forEach((link) => {
@@ -62,9 +56,7 @@ const isActive = (path) => currentPath === path;
       });
     });
     return () => {
-      navLinks.forEach((link) => {
-        link.removeEventListener("click", () => {});
-      });
+      navLinks.forEach((link) => link.removeEventListener("click", () => {}));
     };
   }, [toggleMenu, toggleSubmenu]);
 
@@ -72,12 +64,11 @@ const isActive = (path) => currentPath === path;
     <header className="header header__text">
       <nav className="navigation" aria-label="Menú principal">
         <div className="navigation__container">
-          
+
           <div className="navigation__container-logo">
             <p>COSIDORES DE SALT</p>
           </div>
 
-          {/* Botón hamburguesa */}
           <button
             id="nav-toggle"
             className="navigation__container-button navigation__container-button--open"
@@ -96,7 +87,6 @@ const isActive = (path) => currentPath === path;
             </svg>
           </button>
 
-          {/* Menú principal */}
           <ul
             id="nav-menu"
             className="navigation__container-menu"
@@ -122,121 +112,50 @@ const isActive = (path) => currentPath === path;
               </button>
             </li>
 
-            {/* Mega menú */}
             <li className="navigation__container-menu-itemsMap">
-              <a href="/" className="navigation__container-menu-itemsMap-link">
-               INICI {isActive("/") && <img src={iconoAguja} alt="" className="nav-icon" />}
+              <a href="/" className={linkClass("/")}>
+                INICI {isActive("/") && <img src={iconoAguja} alt="" className="nav-icon" />}
               </a>
             </li>
             <li className="navigation__container-menu-itemsMap">
-              <a href="/qui-som" className="navigation__container-menu-itemsMap-link">
-               QUI SOM? {isActive("/qui-som") && <img src={iconoAguja} alt="" className="nav-icon" />}
+              <a href="/qui-som" className={linkClass("/qui-som")}>
+                QUI SOM? {isActive("/qui-som") && <img src={iconoAguja} alt="" className="nav-icon" />}
               </a>
             </li>
             <li className="navigation__container-menu-itemsMap">
-            <a href="/que-fem" className="navigation__container-menu-itemsMap-link">
-            QUÈ FEM? {isActive("/que-fem") && <img src={iconoAguja} alt="" className="nav-icon" />}
-              </a>
-              {/* <button
-                id="services-btn"
-                className="navigation__container-menu-itemsMap-link"
-                aria-expanded={isSubmenuOpen}
-                aria-controls="submenu-services"
-                type="button"
-                onClick={() => toggleSubmenu(!isSubmenuOpen)}
-              >
-                QUÈ FEM?
-                <svg
-                  id="services-arrow"
-                  className="navigation__container-menu-itemsMap-arrow"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{ transform: isSubmenuOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.3s" }}
-                >
-                  <path d="M5 7l5 5 5-5H5z"></path>
-                </svg> 
-                <img src={iconoAguja} alt="" />
-              </button>
-             
-
-              <div
-                id="submenu-services"
-                className="navigation__container-megamenu"
-                aria-hidden={!isSubmenuOpen}
-                hidden={!isSubmenuOpen}
-              >
-                <div className="megamenu-column">
-                  <h3>
-                    <a href="/servicios/diseno-web/">Diseño y desarrollo web</a>
-                  </h3>
-                  <ul>
-                    <li><a href="/servicios/web-corporativa/">Web corporativa</a></li>
-                    <li><a href="/servicios/tienda-online/">Tienda online / e-commerce</a></li>
-                    <li><a href="/servicios/landing-page/">Landing pages</a></li>
-                    <li><a href="/servicios/redisenio-web/">Rediseño web</a></li>
-                  </ul>
-                </div>
-
-                <div className="megamenu-column">
-                  <h3>
-                    <a href="/servicios/funcionalidades-optimizacion-web/">
-                      Funcionalidades y Optimización
-                    </a>
-                  </h3>
-                  <ul>
-                    <li><a href="/servicios/web-multilingue/">Web multilingüe</a></li>
-                    <li><a href="/servicios/sistemas-de-reservas/">Sistemas de reservas</a></li>
-                    <li><a href="/servicios/accesibilidad-web/">Accesibilidad web</a></li>
-                    <li><a href="/servicios/cartas-digitales-restaurantes/">Cartas digitales para restaurantes</a></li>
-                  </ul>
-                </div>
-
-                <div className="megamenu-column">
-                  <h3>Mantenimiento y soporte</h3>
-                  <ul>
-                    <li><a href="/servicios/mantenimiento-web/">Mantenimiento web</a></li>
-                    <li><a href="/servicios/hosting-dominio/">Hosting y dominio</a></li>
-                  </ul>
-                </div>
-              </div> */}
-            </li>
-
-            <li className="navigation__container-menu-itemsMap">
-              <a href="/noticies" className="navigation__container-menu-itemsMap-link">
-               NOTICIES {isActive("/noticies") && <img src={iconoAguja} alt="" className="nav-icon" />}
+              <a href="/que-cosim" className={linkClass("/que-cosim")}>
+                COSIM {isActive("/que-cosim") && <img src={iconoAguja} alt="" className="nav-icon" />}
               </a>
             </li>
-
             <li className="navigation__container-menu-itemsMap">
-              <a href="/contacte" className="navigation__container-menu-itemsMap-link">
-               CONTACTE {isActive("/contacte") && <img src={iconoAguja} alt="" className="nav-icon" />}
+              <a href="/que-cuinem" className={linkClass("/que-cuinem")}>
+                CUINEM {isActive("/que-cuinem") && <img src={iconoAguja} alt="" className="nav-icon" />}
+              </a>
+            </li>
+            <li className="navigation__container-menu-itemsMap">
+              <a href="/noticies" className={linkClass("/noticies")}>
+                NOTICIES {isActive("/noticies") && <img src={iconoAguja} alt="" className="nav-icon" />}
+              </a>
+            </li>
+            <li className="navigation__container-menu-itemsMap">
+              <a href="/contacte" className={linkClass("/contacte")}>
+                CONTACTE {isActive("/contacte") && <img src={iconoAguja} alt="" className="nav-icon" />}
               </a>
             </li>
 
             <li className="navigation__container-menu-itemsMap cta-mobile">
-              <a 
-                href="https://www.instagram.com/tuusuario" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="icon-link"
-                aria-label="Instagram"
-              >
+              <a href="https://www.instagram.com/tuusuario" target="_blank" rel="noopener noreferrer" className="icon-link" aria-label="Instagram">
                 <img src={InstagramIcon} alt="Instagram" className="icon-social" />
               </a>
             </li>
           </ul>
 
           <div className="button-header">
-          <a 
-            href="https://www.instagram.com/tuusuario" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="icon-link"
-            aria-label="Instagram"
-          >
-            <img src={InstagramIcon} alt="Instagram" className="icon-social" />
-          </a>
+            <a href="https://www.instagram.com/tuusuario" target="_blank" rel="noopener noreferrer" className="icon-link" aria-label="Instagram">
+              <img src={InstagramIcon} alt="Instagram" className="icon-social" />
+            </a>
           </div>
+
         </div>
       </nav>
     </header>

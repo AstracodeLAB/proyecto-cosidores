@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { getLatestServicios } from "../lib/wp.js";
 import Loader from "../components/Loader";
 
-export default function Quefem() {
+export default function QueCuinem() {
   const [servicios, setServicios] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -33,7 +33,7 @@ export default function Quefem() {
       <Header />
       <Hero
         logo={LogoBlack}
-        text={`QUE\nFEM?`}
+        text={`CUINEM\nA\nSALT`}
         alt="Logo de la página Cosidores"
       />
 

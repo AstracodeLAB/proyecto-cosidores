@@ -18,7 +18,8 @@ export default function Footer() {
             <ul>
             <li><a href="/">Inici</a></li>
             <li><a href="/qui-som">Qui som?</a></li>
-            <li><a href="/que-fem">Què fem?</a></li>
+            <li><a href="/que-cosim">Cosim</a></li>
+            <li><a href="/que-cuinem">Cuinem</a></li>
             <li><a href="/noticies">Noticies</a></li>
             <li><a href="/contacte">Contacte</a></li>
             </ul>

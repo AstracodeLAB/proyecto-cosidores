@@ -3,14 +3,14 @@ import Hero from "../components/Hero";
 import Manifest from "../components/Manifest";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
-import logoRed from "../assets/images/logoRed.png";
+import logoBlack from "../assets/images/logoBlack.png";
 
 export default function Home() {
   return (
     <>
       <Header />
       <Hero
-        logo={logoRed}
+        logo={logoBlack}
         text={`FET\nA\nSALT`}
         alt="Logo de la página Cosidores"
       />
