@@ -1,36 +1,47 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import LogoBlack from "../assets/images/logoBlack.png";
 import Hero from "../components/Hero";
 import CardQueFem from "../components/CardQueFem";
 import { useEffect, useState } from "react";
-import { getLatestServicios } from "../lib/wp.js";
+import { getSubcategoriesByParent, getPostsByCategory } from "../lib/wp.js";
 import Loader from "../components/Loader";
 
 export default function QueCuinem() {
-  const [servicios, setServicios] = useState([]);
+  const [subcategories, setSubcategories] = useState([]);
+  const [posts, setPosts] = useState([]);
+  const [selectedCat, setSelectedCat] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [loadingPosts, setLoadingPosts] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchServicios = async () => {
+    const fetchSubcats = async () => {
       try {
-        const data = await getLatestServicios();
-        setServicios(data);
-      } catch (error) {
-        console.error("Error al cargar los servicios:", error);
-        setError("Hi ha hagut un error en carregar els serveis.");
+        const data = await getSubcategoriesByParent("cuina"); // ← slug de Cuina
+        setSubcategories(data);
+      } catch (err) {
+        setError("Hi ha hagut un error en carregar les categories.");
       } finally {
         setLoading(false);
       }
     };
-
-    fetchServicios();
+    fetchSubcats();
   }, []);
+
+  const handleCatClick = async (cat) => {
+    setSelectedCat(cat);
+    setLoadingPosts(true);
+    try {
+      const data = await getPostsByCategory(cat.slug);
+      setPosts(data);
+    } catch (err) {
+      setError("Error en carregar els projectes.");
+    } finally {
+      setLoadingPosts(false);
+    }
+  };
 
   return (
     <>
-      <Header />
       <Hero
         logo={LogoBlack}
         text={`CUINEM\nA\nSALT`}
@@ -39,44 +50,59 @@ export default function QueCuinem() {
 
       <section className="quefem">
         <div className="quefem__intro">
-          <h2 className="quefem__title">Donem forma a projectes tèxtils</h2>
+          <h2 className="quefem__title">El millor de la cuina catalana</h2>
           <p className="quefem__text">
-            Transformem roba, moments i idees. Les cosidores treballem amb
-            creativitat i respecte pel medi ambient, projectant valors a cada
-            puntada.
+            Cuinem amb productes locals i de temporada, compartint la 
+            tradició culinària catalana amb creativitat i bon gust.
           </p>
         </div>
 
-        <div className="quefem__grid">
-          {/* LOADING */}
-          {loading && <Loader />}
-
-          {/* ERROR */}
-          {!loading && error && <p className="error">{error}</p>}
-
-          {/* NO SERVEIS */}
-          {!loading && !error && servicios.length === 0 && (
-            <p>No hi han serveis publicats.</p>
-          )}
-
-          {/* LLISTAT DE SERVEIS */}
-          {!loading &&
-            !error &&
-            servicios.length > 0 &&
-            servicios.map((servicio) => (
+        {/* NIVEL 1 — Cajones (subcategorías de Cuina) */}
+        {!selectedCat && (
+          <div className="quefem__grid">
+            {loading && <Loader />}
+            {!loading && error && <p className="error">{error}</p>}
+            {!loading && !error && subcategories.length === 0 && (
+              <p>No hi han categories publicades.</p>
+            )}
+            {!loading && !error && subcategories.map((cat) => (
               <CardQueFem
-                key={servicio.id}
-                title={servicio.title}
-                excerpt={servicio.excerpt}
-                featuredImage={servicio.featuredImage}
-                link={servicio.link}
-                content={servicio.content}
+                key={cat.id}
+                title={cat.name}
+                excerpt={cat.description}
+                onClick={() => handleCatClick(cat)}
               />
             ))}
-        </div>
-      </section>
+          </div>
+        )}
 
-      <Footer />
+        {/* NIVEL 2 — Posts de la subcategoría seleccionada */}
+        {selectedCat && (
+          <div className="quefem__grid">
+            <button
+              className="quefem__back"
+              onClick={() => { setSelectedCat(null); setPosts([]); }}
+            >
+              ← Tornar
+            </button>
+
+            {loadingPosts && <Loader />}
+            {!loadingPosts && posts.length === 0 && (
+              <p>No hi han projectes publicats.</p>
+            )}
+            {!loadingPosts && posts.map((post) => (
+              <CardQueFem
+                key={post.id}
+                title={post.title}
+                excerpt={post.excerpt}
+                featuredImage={post.featuredImage}
+                slug={post.slug}
+                slugBase="cuinem" // ← para que el link sea /cuinem/:slug
+              />
+            ))}
+          </div>
+        )}
+      </section>
     </>
   );
 }

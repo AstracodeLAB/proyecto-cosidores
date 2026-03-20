@@ -1,17 +1,19 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+
+import Contact from "../components/Contact";
+import logoBlack from "../assets/images/logoBlack.png";
+import Hero from "../components/Hero";
 
 export default function Contacte() {
   return (
     <>
-      <Header />
-      
-      <section className="qui-som">
-        <h1>Qui som</h1>
-        <p>Contenido estático aquí.</p>
-      </section>
+  
+      <Hero
+        logo={logoBlack}
+        // text={`CONTACTA\nA\nSALT`}
+        alt="Logo de la página Cosidores"
+      />
+       <Contact />
 
-      <Footer />
     </>
   );
 }

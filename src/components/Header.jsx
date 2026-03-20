@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import InstagramIcon from "../assets/icons/iconoInsta.svg";
 import iconoAguja from "../assets/icons/iconoAguja.svg";
 
@@ -8,6 +8,7 @@ export default function Header() {
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
+  console.log("currentPath:", currentPath); 
 
   const isActive = (path) => currentPath === path;
 
@@ -113,34 +114,34 @@ export default function Header() {
             </li>
 
             <li className="navigation__container-menu-itemsMap">
-              <a href="/" className={linkClass("/")}>
+              <Link to="/" className={linkClass("/")}>
                 INICI {isActive("/") && <img src={iconoAguja} alt="" className="nav-icon" />}
-              </a>
+              </Link>
             </li>
             <li className="navigation__container-menu-itemsMap">
-              <a href="/qui-som" className={linkClass("/qui-som")}>
+              <Link to="/qui-som" className={linkClass("/qui-som")}>
                 QUI SOM? {isActive("/qui-som") && <img src={iconoAguja} alt="" className="nav-icon" />}
-              </a>
+              </Link>
             </li>
             <li className="navigation__container-menu-itemsMap">
-              <a href="/que-cosim" className={linkClass("/que-cosim")}>
+              <Link to="/que-cosim" className={linkClass("/que-cosim")}>
                 COSIM {isActive("/que-cosim") && <img src={iconoAguja} alt="" className="nav-icon" />}
-              </a>
+              </Link>
             </li>
             <li className="navigation__container-menu-itemsMap">
-              <a href="/que-cuinem" className={linkClass("/que-cuinem")}>
+              <Link to="/que-cuinem" className={linkClass("/que-cuinem")}>
                 CUINEM {isActive("/que-cuinem") && <img src={iconoAguja} alt="" className="nav-icon" />}
-              </a>
+              </Link>
             </li>
             <li className="navigation__container-menu-itemsMap">
-              <a href="/noticies" className={linkClass("/noticies")}>
+              <Link to="/noticies" className={linkClass("/noticies")}>
                 NOTICIES {isActive("/noticies") && <img src={iconoAguja} alt="" className="nav-icon" />}
-              </a>
+              </Link>
             </li>
             <li className="navigation__container-menu-itemsMap">
-              <a href="/contacte" className={linkClass("/contacte")}>
+              <Link to="/contacte" className={linkClass("/contacte")}>
                 CONTACTE {isActive("/contacte") && <img src={iconoAguja} alt="" className="nav-icon" />}
-              </a>
+              </Link>
             </li>
 
             <li className="navigation__container-menu-itemsMap cta-mobile">

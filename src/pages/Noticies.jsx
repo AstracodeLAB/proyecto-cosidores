@@ -1,5 +1,4 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+
 import LogoBlack from "../assets/images/logoBlack.png";
 import Hero from "../components/Hero";
 import CardQueFem from "../components/CardQueFem";
@@ -30,7 +29,7 @@ export default function Noticies() {
   
     return (
       <>
-        <Header />
+      
         <Hero
           logo={LogoBlack}
           text={`NOTI\nCIES`}
@@ -73,8 +72,7 @@ export default function Noticies() {
               ))}
           </div>
         </section>
-  
-        <Footer />
+
       </>
     );
 }

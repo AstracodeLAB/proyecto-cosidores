@@ -1,0 +1,152 @@
+@use '../core/variables' as var;
+@use '../core/mixins' as mix;
+
+.post-detail {
+  background: var.$white;
+  padding: 6rem 1.5rem 3rem;
+
+  @include mix.tablet {
+    padding: 8rem 2rem 4rem;
+  }
+
+  @include mix.desktop {
+    padding: 8rem 0 4rem;
+  }
+}
+
+.post-detail__container {
+  max-width: 760px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.post-detail__date {
+  font-size: 14px;
+  line-height: 28px;
+  color: var.$gray-dark;
+
+  @include mix.tablet {
+    font-size: 16px;
+  }
+
+  @include mix.desktop {
+    font-size: 18px;
+  }
+}
+
+.post-detail__title {
+  font-size: 20px;
+  line-height: 35px;
+  color: var.$black;
+  font-weight: 700;
+  margin: 0;
+
+  @include mix.tablet {
+    font-size: 40px;
+    line-height: 59px;
+  }
+
+  @include mix.desktop {
+    font-size: 48px;
+  }
+}
+
+.post-detail__excerpt {
+  font-size: 16px;
+  line-height: 28px;
+  color: var.$gray-dark;
+  margin: 0;
+
+  @include mix.tablet {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  @include mix.desktop {
+    font-size: 20px;
+    line-height: 32px;
+  }
+}
+
+.post-detail__image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+
+  @include mix.tablet {
+    height: 420px;
+  }
+
+  @include mix.desktop {
+    height: 500px;
+  }
+}
+
+.post-detail__content {
+  font-size: 16px;
+  line-height: 28px;
+  color: var.$black;
+
+  @include mix.tablet {
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  @include mix.desktop {
+    font-size: 20px;
+    line-height: 32px;
+  }
+
+  p { margin-bottom: 1.5rem; }
+  h2, h3 { font-weight: 700; margin: 2rem 0 1rem; }
+  ul, ol { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+  li { margin-bottom: 0.5rem; }
+}
+
+.post-detail__external-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  color: var.$black;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  border-top: 1px solid var.$black-opacity;
+  padding-top: 1rem;
+
+  &:hover {
+    color: var.$red-primary;
+  }
+
+  @include mix.tablet {
+    font-size: 16px;
+  }
+}
+
+.post-detail__back {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var.$red-primary;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  @include mix.tablet {
+    font-size: 16px;
+  }
+}

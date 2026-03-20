@@ -92,6 +92,10 @@
 .navigation__container-menu-itemsMap-link--active {
   color: #E10041;
 }
+a.navigation__container-menu-itemsMap-link--active,
+.navigation__container-menu-itemsMap-link--active {
+  color: #E10041 !important;
+}
 
 .navigation__container-menu[aria-hidden='false'] {
   display: flex !important;
