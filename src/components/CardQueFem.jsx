@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 export default function CardQueFem({ title, excerpt, featuredImage, slug, slugBase, onClick }) {
   return (
@@ -22,11 +23,15 @@ export default function CardQueFem({ title, excerpt, featuredImage, slug, slugBa
               />
             )}
             <div className="card__content--quefem--containerText--link">
-           
-              {/* Si tiene link externo de WP */}
-              {slug && (
+              {/* Si es categoría (tiene onClick pero no slug) */}
+              {onClick && !slug && (
+  <span className="card__link card__link--quefem">
+    Veure projectes <span className="arrow-triangle">▶</span>
+  </span>
+)}
+{slug && (
   <Link to={`/${slugBase || "cosim"}/${slug}`} className="card__link card__link--quefem">
-    Llegeix més →
+    Llegeix més <span className="arrow-triangle">▶</span>
   </Link>
 )}
             </div>

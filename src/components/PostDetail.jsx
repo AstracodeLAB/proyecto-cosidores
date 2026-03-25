@@ -73,7 +73,7 @@ export default function PostDetail() {
         )}
 
         <button className="post-detail__back" onClick={() => navigate(-1)}>
-          ← Tornar
+        <span className="arrow-triangle">◀</span> Tornar
         </button>
 
       </div>

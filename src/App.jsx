@@ -8,11 +8,15 @@ import QueCosim from "./pages/QueCosim.jsx";
 import QueCuinem from "./pages/QueCuinem.jsx";
 import PostDetail from "./components/PostDetail.jsx"; // ← importa la página de detalle
 import Footer from "./components/Footer.jsx";
+import NotFound from "./pages/NotFound.jsx";
+import CookieBanner from "./components/CookieBanner.jsx";
+import PaginaLegal from "./pages/PaginaLegal.jsx";
 
 function App() {
   return (
     <Router>
       <Header />
+      <CookieBanner />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/qui-som" element={<QuiSom />} />
@@ -21,7 +25,11 @@ function App() {
         <Route path="/noticies" element={<Noticies />} />
         <Route path="/contacte" element={<Contacte />} />
         <Route path="/cosim/:slug" element={<PostDetail />} />   {/* ← detalle cosim */}
-        <Route path="/cuinem/:slug" element={<PostDetail />} />  {/* ← detalle cuinem */}
+        <Route path="/cuinem/:slug" element={<PostDetail />} /> 
+        <Route path="/noticies/:slug" element={<PostDetail />} />
+        <Route path="/:slug" element={<PaginaLegal />} />
+        <Route path="*" element={<NotFound />} />
+   
       </Routes>
       <Footer />
     </Router>

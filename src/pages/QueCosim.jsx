@@ -71,7 +71,9 @@ export default function QueCosim() {
                 key={cat.id}
                 title={cat.name}
                 excerpt={cat.description}
+                featuredImage={cat.image}
                 onClick={() => handleCatClick(cat)}
+                slugBase="cosim"
               />
             ))}
           </div>
@@ -80,12 +82,9 @@ export default function QueCosim() {
         {/* NIVEL 2 — Posts de la subcategoría seleccionada */}
         {selectedCat && (
           <div className="quefem__grid">
-            <button
-              className="quefem__back"
-              onClick={() => { setSelectedCat(null); setPosts([]); }}
-            >
-              ← Tornar
-            </button>
+           <button className="quefem__back" onClick={() => { setSelectedCat(null); setPosts([]); }}>
+  <span className="arrow-triangle">◀</span> Tornar
+</button>
 
             {loadingPosts && <Loader />}
             {!loadingPosts && posts.length === 0 && (
@@ -98,6 +97,8 @@ export default function QueCosim() {
                 excerpt={post.excerpt}
                 featuredImage={post.featuredImage}
                 slug={post.slug}
+                slugBase="cosim"
+                
               />
             ))}
           </div>

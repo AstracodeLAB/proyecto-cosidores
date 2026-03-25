@@ -62,12 +62,12 @@ export default function Noticies() {
               servicios.length > 0 &&
               servicios.map((servicio) => (
                 <CardQueFem
-                  key={servicio.id}
-                  title={servicio.title}
-                  excerpt={servicio.excerpt}
-                  featuredImage={servicio.featuredImage}
-                  link={servicio.link}
-                  content={servicio.content}
+                key={servicio.id}
+                title={servicio.title}
+                excerpt={servicio.excerpt}
+                featuredImage={servicio.featuredImage}
+                slug={servicio.slug}
+                slugBase="noticies"
                 />
               ))}
           </div>

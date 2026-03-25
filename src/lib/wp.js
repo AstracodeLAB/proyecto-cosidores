@@ -95,6 +95,7 @@ export const getSubcategoriesByParent = async (parentSlug) => {
     slug: cat.slug,
     description: cat.description,
     count: cat.count,
+    image: cat.acf?.imatge || null,
   }));
 };
 

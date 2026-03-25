@@ -1,0 +1,49 @@
+@use 'sass:map';
+@use '../core/variables' as var;
+@use '../core/mixins' as mix;
+
+.not-found {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var.$white;
+  @include mix.tablet {
+    padding: 2rem;
+  }
+  @include mix.desktop {
+    padding: 6rem;
+  }
+
+  &__container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__title {
+    font-size: 8rem;
+    font-weight: 800;
+    color: var.$red-primary;
+    line-height: 1;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    color: var.$gray-dark;
+  }
+
+  &__link {
+    color: var.$black;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    &:hover {
+      color: var.$red-primary;
+    }
+  }
+}

@@ -47,13 +47,13 @@ export default function Footer() {
       </article>
       <article className="footer__legal-copyright">
         <div className="footer__legal">
-          <a href="/">Política de privacitat
+          <a href="/politica-de-privacitat">Política de privacitat
           </a>
           <span> | </span>
-          <a href="/">Política de cookies
+          <a href="/politica-de-cookies">Política de cookies
           </a>
           <span> | </span>
-          <a href="/">Avís legal
+          <a href="/avis-legal">Avís legal
           </a>
         </div>
         <div className="footer__copyright">
