@@ -1,4 +1,5 @@
 
+import { Helmet } from 'react-helmet-async';
 import LogoBlack from "../assets/images/logoBlack.png";
 import Hero from "../components/Hero";
 import CardQueFem from "../components/CardQueFem";
@@ -29,6 +30,15 @@ export default function Noticies() {
   
     return (
       <>
+        <Helmet>
+          <title>Notícies | Cosidores de Salt</title>
+          <meta name="description" content="Estigues al dia de tot el que cosim! Tallers, esdeveniments, projectes i notícies de l'associació Cosidores de Salt." />
+          <meta property="og:title" content="Notícies | Cosidores de Salt" />
+          <meta property="og:description" content="Tallers, esdeveniments, projectes i notícies de l'associació Cosidores de Salt." />
+          <meta property="og:type" content="website" />
+        </Helmet>
+
+        <h1 className="visually-hidden">Notícies de Cosidores de Salt</h1>
       
         <Hero
           logo={LogoBlack}

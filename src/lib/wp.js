@@ -76,6 +76,9 @@ export const getPostBySlug = async (slug) => {
     slug: post.slug,
     featuredImage: post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null,
     date: post.date,
+    seoTitle: post.yoast_head_json?.title || post.title.rendered,
+    seoDescription: post.yoast_head_json?.description || post.excerpt.rendered,
+    seoImage: post.yoast_head_json?.og_image?.[0]?.url || post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null,
   };
 };
 

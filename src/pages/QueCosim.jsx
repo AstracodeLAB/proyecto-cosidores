@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import LogoBlack from "../assets/images/logoBlack.png";
 import Hero from "../components/Hero";
 import CardQueFem from "../components/CardQueFem";
@@ -42,6 +43,16 @@ export default function QueCosim() {
 
   return (
     <>
+     <Helmet>
+        <title>Cosim | Cosidores de Salt</title>
+        <meta name="description" content="Descobreix els projectes tèxtils de Cosidores de Salt. Transformem roba, moments i idees amb creativitat i respecte pel medi ambient." />
+        <meta property="og:title" content="Cosim | Cosidores de Salt" />
+        <meta property="og:description" content="Descobreix els projectes tèxtils de Cosidores de Salt." />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
+      <h1 className="visually-hidden">Els nostres projectes de costura</h1>
+      
       <Hero
         logo={LogoBlack}
         text={`COSIM\nA\nSALT`}

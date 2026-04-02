@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import LogoBlack from "../assets/images/logoBlack.png";
 import Hero from "../components/Hero";
 import CardQueFem from "../components/CardQueFem";
@@ -42,6 +43,14 @@ export default function QueCuinem() {
 
   return (
     <>
+    <Helmet>
+        <title>Cuinem | Cosidores de Salt</title>
+        <meta name="description" content="Descobreix les receptes i projectes de cuina de Cosidores de Salt. Cuinem amb productes locals i de temporada, compartint la tradició culinària catalana." />
+        <meta property="og:title" content="Cuinem | Cosidores de Salt" />
+        <meta property="og:description" content="Cuinem amb productes locals i de temporada, compartint la tradició culinària catalana." />
+        <meta property="og:type" content="website" />
+      </Helmet>
+
       <Hero
         logo={LogoBlack}
         text={`CUINEM\nA\nSALT`}
@@ -56,6 +65,8 @@ export default function QueCuinem() {
             tradició culinària catalana amb creativitat i bon gust.
           </p>
         </div>
+
+        <h1 className="visually-hidden">Els nostres projectes de cuina</h1>
 
         {/* NIVEL 1 — Cajones (subcategorías de Cuina) */}
         {!selectedCat && (

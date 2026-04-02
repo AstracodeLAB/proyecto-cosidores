@@ -1,3 +1,5 @@
+
+import { Link } from "react-router-dom";
 import LogoFooter from "../assets/images/logoFooter.png";
 import MailIcon from "../assets/icons/mail.svg";
 import WhatsapIcon from "../assets/icons/whatsapp.svg";
@@ -12,16 +14,16 @@ export default function Footer() {
       <article className="footer__main">
         <div className="footer__content">
           <div className="footer__logo" > 
-            <img className="footer__logo-img" src={LogoFooter} alt="" />
+            <img className="footer__logo-img" src={LogoFooter} alt="Logo de Cosidores de Salt" />
           </div>
           <div className="footer__nav">
             <ul>
-            <li><a href="/">Inici</a></li>
-            <li><a href="/qui-som">Qui som?</a></li>
-            <li><a href="/que-cosim">Cosim</a></li>
-            <li><a href="/que-cuinem">Cuinem</a></li>
-            <li><a href="/noticies">Noticies</a></li>
-            <li><a href="/contacte">Contacte</a></li>
+              <li><Link to="/">Inici</Link></li>
+              <li><Link to="/qui-som">Qui som?</Link></li>
+              <li><Link to="/cosim">Cosim</Link></li>
+              <li><Link to="/cuinem">Cuinem</Link></li>
+              <li><Link to="/noticies">Noticies</Link></li>
+              <li><Link to="/contacte">Contacte</Link></li>
             </ul>
           </div>
         </div>
@@ -47,14 +49,12 @@ export default function Footer() {
       </article>
       <article className="footer__legal-copyright">
         <div className="footer__legal">
-          <a href="/politica-de-privacitat">Política de privacitat
-          </a>
+        <Link to="/politica-de-privacitat">Política de privacitat</Link>
           <span> | </span>
-          <a href="/politica-de-cookies">Política de cookies
-          </a>
+          <Link to="/politica-de-cookies">Política de cookies</Link>
           <span> | </span>
-          <a href="/avis-legal">Avís legal
-          </a>
+          <Link to="/avis-legal">Avís legal</Link>
+        
         </div>
         <div className="footer__copyright">
           <p>© 2025 · Tots els drets reservats</p>

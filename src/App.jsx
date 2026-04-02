@@ -20,8 +20,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/qui-som" element={<QuiSom />} />
-        <Route path="/que-cosim" element={<QueCosim />} />
-        <Route path="/que-cuinem" element={<QueCuinem />} />
+        <Route path="/cosim" element={<QueCosim />} />
+        <Route path="/cuinem" element={<QueCuinem />} />
         <Route path="/noticies" element={<Noticies />} />
         <Route path="/contacte" element={<Contacte />} />
         <Route path="/cosim/:slug" element={<PostDetail />} />   {/* ← detalle cosim */}

@@ -66,9 +66,9 @@ export default function Header() {
       <nav className="navigation" aria-label="Menú principal">
         <div className="navigation__container">
 
-          <div className="navigation__container-logo">
-            <p>COSIDORES DE SALT</p>
-          </div>
+          <Link to="/" className="navigation__container-logo">
+            <span className="navigation__container-logo-span">COSIDORES DE SALT</span>
+          </Link>
 
           <button
             id="nav-toggle"
@@ -124,12 +124,12 @@ export default function Header() {
               </Link>
             </li>
             <li className="navigation__container-menu-itemsMap">
-              <Link to="/que-cosim" className={linkClass("/que-cosim")}>
+              <Link to="/cosim" className={linkClass("/que-cosim")}>
                 COSIM {isActive("/que-cosim") && <img src={iconoAguja} alt="" className="nav-icon" />}
               </Link>
             </li>
             <li className="navigation__container-menu-itemsMap">
-              <Link to="/que-cuinem" className={linkClass("/que-cuinem")}>
+              <Link to="/cuinem" className={linkClass("/que-cuinem")}>
                 CUINEM {isActive("/que-cuinem") && <img src={iconoAguja} alt="" className="nav-icon" />}
               </Link>
             </li>

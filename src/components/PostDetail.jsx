@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useParams, useNavigate } from "react-router-dom";
 import { getPostBySlug } from "../lib/wp";
 import { useEffect, useState } from "react";
@@ -23,6 +24,15 @@ export default function PostDetail() {
 
   return (
     <section className="post-detail">
+      <Helmet>
+        <title>{post.seoTitle}</title>
+        <meta name="description" content={post.seoDescription} />
+        <meta property="og:title" content={post.seoTitle} />
+        <meta property="og:description" content={post.seoDescription} />
+        {post.seoImage && <meta property="og:image" content={post.seoImage} />}
+        <meta property="og:type" content="article" />
+      </Helmet>
+      
       <div className="post-detail__container">
 
         {post.date && (
